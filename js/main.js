@@ -4,7 +4,7 @@ const { createApp } = Vue
     data() {
       return {
         activeContact: 0,
-        newMessage: '',
+        newMessageText: '',
         contacts: [
           {
           name: 'Michele',
@@ -186,6 +186,34 @@ const { createApp } = Vue
   methods: {
     changeContact(index) {
       this.activeContact = index;
+    },
+
+    addMessage(index) {
+      let newMessage = {
+        date: 'adesso',
+        message: this.newMessageText,
+        status: 'sent'
+      }
+      console.log(this.contacts[index].messages);
+      this.contacts[index].messages.push(newMessage);
+      this.newMessageText = '';
+
+      
+      setTimeout(this.pushMessage, 1000);
+    },
+
+    receiveMessage() {
+      let newMessage = {
+        date: 'adesso',
+        message: 'ok!',
+        status: 'received'
+      }
+      return newMessage;
+    },
+
+    pushMessage() {
+      let newReceivedMessage = this.receiveMessage();
+      this.contacts[this.activeContact].messages.push(newReceivedMessage);
     }
   },
 }).mount('#app')

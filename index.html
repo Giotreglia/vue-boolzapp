@@ -110,7 +110,7 @@
                 <!-- Input message -->
                 <div id="message-input-container" class="d-flex">
                     <label for="message-input"><i class="fa-regular fa-face-smile"></i></label>
-                    <input id="message-input" type="text" placeholder="Scrivi un messaggio" v-model="newMessage">
+                    <input id="message-input" type="text" placeholder="Scrivi un messaggio" v-model="newMessageText" @keyup.enter="addMessage(activeContact)">
                     <span><i class="fa-solid fa-microphone"></i></span>
                 </div>
             </div>
