@@ -9,7 +9,6 @@ const { createApp } = Vue
         contacts: [
           {
           name: 'Michele',
-          nameLC: 'michele',
           avatar: './img/avatar_1.jpg',
           visible: true,
           messages: [
@@ -31,7 +30,6 @@ const { createApp } = Vue
         ]},
           {
           name: 'Fabio',
-          nameLC: 'fabio',
           avatar: './img/avatar_2.jpg',
           visible: true,
           messages: [
@@ -53,7 +51,6 @@ const { createApp } = Vue
           ]},
           {
           name: 'Samuele',
-          nameLC: 'samuele',
           avatar: './img/avatar_3.jpg',
           visible: true,
           messages: [
@@ -75,7 +72,6 @@ const { createApp } = Vue
           ]},
           {
           name: 'Alessandro B.',
-          nameLC: 'alessandro b.',
           avatar: './img/avatar_4.jpg',
           visible: true,
           messages: [
@@ -92,7 +88,6 @@ const { createApp } = Vue
           ]},
           {
           name: 'Alessandro L.',
-          nameLC: 'alessandro l.',
           avatar: './img/avatar_5.jpg',
           visible: true,
           messages: [
@@ -109,7 +104,6 @@ const { createApp } = Vue
           ]},
           {
           name: 'Claudia',
-          nameLC: 'claudia',
           avatar: './img/avatar_5.jpg',
           visible: true,
           messages: [
@@ -131,7 +125,6 @@ const { createApp } = Vue
           ]},
           {
           name: 'Federico',
-          nameLC: 'federico',
           avatar: './img/avatar_7.jpg',
           visible: true,
           messages: [
@@ -148,7 +141,6 @@ const { createApp } = Vue
           ]},
           {
           name: 'Davide',
-          nameLC: 'davide',
           avatar: './img/avatar_8.jpg',
           visible: true,
           messages: [
@@ -170,7 +162,6 @@ const { createApp } = Vue
           ]},
           {
             name: 'Davide',
-            nameLC: 'davide',
             avatar: './img/avatar_8.jpg',
             visible: true,
             messages: [
@@ -237,7 +228,8 @@ const { createApp } = Vue
 
       this.contacts.forEach(element => {
         element.visible = false;
-        if (element.nameLC.includes(newFilter)) {
+        let lcName = element.name.toLowerCase();
+        if (lcName.includes(newFilter)) {
           element.visible = true;
         }
       });
