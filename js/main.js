@@ -9,6 +9,7 @@ const { createApp } = Vue
         contacts: [
           {
           name: 'Michele',
+          nameLC: 'michele',
           avatar: './img/avatar_1.jpg',
           visible: true,
           messages: [
@@ -30,6 +31,7 @@ const { createApp } = Vue
         ]},
           {
           name: 'Fabio',
+          nameLC: 'fabio',
           avatar: './img/avatar_2.jpg',
           visible: true,
           messages: [
@@ -51,6 +53,7 @@ const { createApp } = Vue
           ]},
           {
           name: 'Samuele',
+          nameLC: 'samuele',
           avatar: './img/avatar_3.jpg',
           visible: true,
           messages: [
@@ -72,8 +75,9 @@ const { createApp } = Vue
           ]},
           {
           name: 'Alessandro B.',
+          nameLC: 'alessandro b.',
           avatar: './img/avatar_4.jpg',
-          visible: false,
+          visible: true,
           messages: [
                       {
                         date: '10/01/2020 15:30:55',
@@ -88,6 +92,7 @@ const { createApp } = Vue
           ]},
           {
           name: 'Alessandro L.',
+          nameLC: 'alessandro l.',
           avatar: './img/avatar_5.jpg',
           visible: true,
           messages: [
@@ -104,8 +109,9 @@ const { createApp } = Vue
           ]},
           {
           name: 'Claudia',
+          nameLC: 'claudia',
           avatar: './img/avatar_5.jpg',
-          visible: false,
+          visible: true,
           messages: [
                       {
                         date: '10/01/2020 15:30:55',
@@ -125,6 +131,7 @@ const { createApp } = Vue
           ]},
           {
           name: 'Federico',
+          nameLC: 'federico',
           avatar: './img/avatar_7.jpg',
           visible: true,
           messages: [
@@ -141,8 +148,9 @@ const { createApp } = Vue
           ]},
           {
           name: 'Davide',
+          nameLC: 'davide',
           avatar: './img/avatar_8.jpg',
-          visible: false,
+          visible: true,
           messages: [
                       {
                         date: '10/01/2020 15:30:55',
@@ -162,6 +170,7 @@ const { createApp } = Vue
           ]},
           {
             name: 'Davide',
+            nameLC: 'davide',
             avatar: './img/avatar_8.jpg',
             visible: true,
             messages: [
@@ -223,30 +232,22 @@ const { createApp } = Vue
 
     //Milestone 4
     filterContacts() {
-      let filteredContacts = this.contacts.map((elemento) => {
-        elemento.visible = false;
-        if (elemento.name.includes(this.filter)) {
-          elemento.visibile = true;
-        }
-      })
 
-      filteredContacts = this.contacts.filter((item) => item.visible);
+      newFilter = this.filter.toLowerCase();
+
+      this.contacts.forEach(element => {
+        element.visible = false;
+        if (element.nameLC.includes(newFilter)) {
+          element.visible = true;
+        }
+      });
+      console.log(this.contacts);
+
+
+      let filteredContacts = this.contacts.filter((item) => item.visible);
       console.log(filteredContacts);
 
       this.filteredContacts = filteredContacts;
       }
-
-
-    
-
-    /* filterContacts() {
-      const filteredContacts = this.contacts.filter((item)=> {
-      const espressioneRegolare = new RegExp(this.filter, 'i');
-      return espressioneRegolare.test(item.name);  
-      });
-
-      this.filteredContacts = filteredContacts;
-      console.log(this.filteredContacts);
-    } */
   },
 }).mount('#app')
