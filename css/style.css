@@ -137,6 +137,7 @@ body {
 .user-message {
     height: 80px;
     border-bottom: solid 1px rgb(224, 224, 224);
+    cursor: pointer;
 }
 
 .user {
@@ -222,4 +223,9 @@ body {
 .received {
     align-self: flex-start;
     background-color: white;
+}
+
+/* Hover */
+.user-message:hover {
+    background-color: rgb(234, 234, 234);
 }

@@ -181,4 +181,10 @@ const { createApp } = Vue
           ]}
       ]
     }
-  }}).mount('#app')
+  },
+  methods: {
+    changeContact(index) {
+      this.activeContact = index;
+    }
+  },
+}).mount('#app')

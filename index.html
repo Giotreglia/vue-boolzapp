@@ -61,7 +61,7 @@
                 <div id="message-list-container">
 
                     <!-- Messaggio nella lista -->
-                    <div class="user-message" v-for="(contact, index) in contacts">
+                    <div class="user-message" v-for="(contact, index) in contacts" @click="changeContact(index)">
                         <div class="user d-flex">
                             <img class="user-image" :src="contact.avatar" :alt="contact.name">
                             <div class="user-data d-flex">
