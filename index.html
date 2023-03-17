@@ -5,13 +5,127 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>html</title>
 </head>
 <body>
-
-
     <div id="app">
         
+        <!-- Background -->
+        <div id="back-header"></div>
+        <div id="back-body"></div>
+
+        <!-- Main app -->
+        <div id="big-container">
+
+            <!-- Parte di sinistra -->
+            <div id="left-container" class="d-flex flex-column">
+
+                <!-- Left header -->
+                <div class="app-header d-flex">
+
+                    <!-- User image -->
+                    <div class="user d-flex">
+                        <img class="user-image" src="img/avatar_io.jpg" alt="Sofia">
+                        <span>Sofia</span>
+                    </div>
+
+                    <!-- User buttons -->
+                    <div class="user-buttons d-flex">
+                        <span><i class="fa-solid fa-circle-notch"></i></span>
+                        <span><i class="fa-solid fa-message"></i></span>
+                        <span><i class="fa-solid fa-ellipsis-vertical"></i></span>
+                    </div>
+
+
+                </div>
+
+                <!-- Notifiche -->
+                <div id="notification" class="d-flex">
+                    <span id="notification-bell"><i class="fa-solid fa-bell-slash"></i></span>
+                        <div class="user-data d-flex">
+                            <span>Ricevi notifiche di nuovi messaggi</span>
+                            <span class="last-access"><a href="#">Attiva notifiche desktop</a></span>
+                        </div>
+                </div>
+
+                <!-- Search bar -->
+                <div id="search-bar">
+                    <div id="search-wrapper" class="d-flex">
+                        <label for="search"><i class="fa-solid fa-magnifying-glass"></i></label>
+                        <input id="search" type="text" placeholder="Cerca o inizia una nuova chat">
+                    </div>
+                </div>
+
+                <!-- Lista messaggi -->
+                <div id="message-list-container">
+
+                    <!-- Messaggio nella lista -->
+                    <div class="user-message">
+                        <div class="user d-flex">
+                            <img class="user-image" src="img/avatar_1.jpg" alt="Sofia">
+                            <div class="user-data d-flex">
+                                <span>Michele</span>
+                                <span class="last-access">Ultimo accesso oggi alle 12.00</span>
+                            </div>
+                            <span class="message-list-hour">12:00</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <!-- Parte di destra -->
+            <div id="right-container" class="d-flex flex-column">
+
+                <!-- Right header -->
+                <div class="app-header d-flex">
+                    <div class="user d-flex">
+                        <img class="user-image" src="img/avatar_1.jpg" alt="Sofia">
+                        <div class="user-data d-flex">
+                            <span>Michele</span>
+                            <span class="last-access">Ultimo accesso oggi alle 12.00</span>
+                        </div>
+                    </div>
+
+                    <!-- User buttons -->
+                    <div class="user-buttons d-flex">
+                        <span><i class="fa-solid fa-magnifying-glass"></i></span>
+                        <span><i class="fa-solid fa-paperclip"></i></span>
+                        <span><i class="fa-solid fa-ellipsis-vertical"></i></span>
+                    </div>
+
+                </div>
+
+                <!-- Area testi messaggi -->
+                <div id="message-area" class="d-flex">
+                    <div class="message d-flex sent">
+                        <span class="message-text">Hai portato a spasso il cane?</span>
+                        <span class="message-hour">15:30</span>
+                    </div>
+                    <div class="message d-flex sent">
+                        <span class="message-text">Hai portato a spasso il cane?</span>
+                        <span class="message-hour">15:30</span>
+                    </div>
+                    <div class="message d-flex arrived">
+                        <span class="message-text">Hai portato a spasso il cane?</span>
+                        <span class="message-hour">15:30</span>
+                    </div>
+                </div>
+
+                <!-- Input message -->
+                <div id="message-input-container" class="d-flex">
+                    <label for="message-input"><i class="fa-regular fa-face-smile"></i></label>
+                    <input id="message-input" type="text" placeholder="Scrivi un messaggio">
+                    <span><i class="fa-solid fa-microphone"></i></span>
+                </div>
+            </div>
+            
+
+        </div>
+
     </div>
 
 
