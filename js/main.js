@@ -5,6 +5,7 @@ const { createApp } = Vue
       return {
         activeContact: 0,
         newMessageText: '',
+        filter: '',
         contacts: [
           {
           name: 'Michele',
@@ -72,7 +73,7 @@ const { createApp } = Vue
           {
           name: 'Alessandro B.',
           avatar: './img/avatar_4.jpg',
-          visible: true,
+          visible: false,
           messages: [
                       {
                         date: '10/01/2020 15:30:55',
@@ -104,7 +105,7 @@ const { createApp } = Vue
           {
           name: 'Claudia',
           avatar: './img/avatar_5.jpg',
-          visible: true,
+          visible: false,
           messages: [
                       {
                         date: '10/01/2020 15:30:55',
@@ -141,7 +142,7 @@ const { createApp } = Vue
           {
           name: 'Davide',
           avatar: './img/avatar_8.jpg',
-          visible: true,
+          visible: false,
           messages: [
                       {
                         date: '10/01/2020 15:30:55',
@@ -180,14 +181,18 @@ const { createApp } = Vue
                           status: 'received'
                         }
           ]}
-      ]
+      ],
+      filteredContacts : []
     }
   },
   methods: {
+
+    // Milestone 2
     changeContact(index) {
       this.activeContact = index;
     },
 
+    // Milestone 3
     addMessage(index) {
       let newMessage = {
         date: 'adesso',
@@ -214,6 +219,34 @@ const { createApp } = Vue
     pushMessage() {
       let newReceivedMessage = this.receiveMessage();
       this.contacts[this.activeContact].messages.push(newReceivedMessage);
-    }
+    },
+
+    //Milestone 4
+    filterContacts() {
+      let filteredContacts = this.contacts.map((elemento) => {
+        elemento.visible = false;
+        if (elemento.name.includes(this.filter)) {
+          elemento.visibile = true;
+        }
+      })
+
+      filteredContacts = this.contacts.filter((item) => item.visible);
+      console.log(filteredContacts);
+
+      this.filteredContacts = filteredContacts;
+      }
+
+
+    
+
+    /* filterContacts() {
+      const filteredContacts = this.contacts.filter((item)=> {
+      const espressioneRegolare = new RegExp(this.filter, 'i');
+      return espressioneRegolare.test(item.name);  
+      });
+
+      this.filteredContacts = filteredContacts;
+      console.log(this.filteredContacts);
+    } */
   },
 }).mount('#app')
