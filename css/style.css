@@ -219,7 +219,7 @@ body {
     background-color: rgb(213, 249, 186);
 }
 
-.arrived {
+.received {
     align-self: flex-start;
     background-color: white;
 }

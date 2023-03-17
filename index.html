@@ -61,11 +61,11 @@
                 <div id="message-list-container">
 
                     <!-- Messaggio nella lista -->
-                    <div class="user-message">
+                    <div class="user-message" v-for="(contact, index) in contacts">
                         <div class="user d-flex">
-                            <img class="user-image" src="img/avatar_1.jpg" alt="Sofia">
+                            <img class="user-image" :src="contact.avatar" :alt="contact.name">
                             <div class="user-data d-flex">
-                                <span>Michele</span>
+                                <span>{{ contact.name }}</span>
                                 <span class="last-access">Ultimo accesso oggi alle 12.00</span>
                             </div>
                             <span class="message-list-hour">12:00</span>
@@ -85,7 +85,7 @@
                     <div class="user d-flex">
                         <img class="user-image" src="img/avatar_1.jpg" alt="Sofia">
                         <div class="user-data d-flex">
-                            <span>Michele</span>
+                            <span>{{ contacts[activeContact].name }}</span>
                             <span class="last-access">Ultimo accesso oggi alle 12.00</span>
                         </div>
                     </div>
@@ -101,16 +101,8 @@
 
                 <!-- Area testi messaggi -->
                 <div id="message-area" class="d-flex">
-                    <div class="message d-flex sent">
-                        <span class="message-text">Hai portato a spasso il cane?</span>
-                        <span class="message-hour">15:30</span>
-                    </div>
-                    <div class="message d-flex sent">
-                        <span class="message-text">Hai portato a spasso il cane?</span>
-                        <span class="message-hour">15:30</span>
-                    </div>
-                    <div class="message d-flex arrived">
-                        <span class="message-text">Hai portato a spasso il cane?</span>
+                    <div class="message d-flex" v-for="message in contacts[activeContact].messages" :class="message.status == 'sent'?'sent':'received'">
+                        <span class="message-text">{{ message.message }}</span>
                         <span class="message-hour">15:30</span>
                     </div>
                 </div>
