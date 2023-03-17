@@ -83,7 +83,7 @@
                 <!-- Right header -->
                 <div class="app-header d-flex">
                     <div class="user d-flex">
-                        <img class="user-image" src="img/avatar_1.jpg" alt="Sofia">
+                        <img class="user-image" :src="contacts[activeContact].avatar" :alt="contacts[activeContact].name">
                         <div class="user-data d-flex">
                             <span>{{ contacts[activeContact].name }}</span>
                             <span class="last-access">Ultimo accesso oggi alle 12.00</span>
@@ -110,7 +110,7 @@
                 <!-- Input message -->
                 <div id="message-input-container" class="d-flex">
                     <label for="message-input"><i class="fa-regular fa-face-smile"></i></label>
-                    <input id="message-input" type="text" placeholder="Scrivi un messaggio">
+                    <input id="message-input" type="text" placeholder="Scrivi un messaggio" v-model="newMessage">
                     <span><i class="fa-solid fa-microphone"></i></span>
                 </div>
             </div>
