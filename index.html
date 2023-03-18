@@ -68,7 +68,7 @@
                             <img class="user-image" :src="contact.avatar" :alt="contact.name">
                             <div class="user-data d-flex">
                                 <span>{{ contact.name }}</span>
-                                <span class="last-message" v-for="(message, i) in contacts[index].messages">{{ message.message }} {{i}}<span class="message-list-hour">{{ message.date }}</span></span>                             
+                                <span class="last-message">{{ contact.messages[contact.messages.length-1].message }}<span class="message-list-hour">{{ contact.messages[contact.messages.length-1].date }}</span></span>                             
                             </div>
                         </div>
                     </div>
@@ -78,7 +78,7 @@
                             <img class="user-image" :src="contact.avatar" :alt="contact.name">
                             <div class="user-data d-flex">
                                 <span>{{ contact.name }}</span>
-                                <span class="last-message" v-for="(message, i) in contact.messages">{{ message.message }}<span class="message-list-hour">{{ message.date }}</span></span>
+                                <span class="last-message">{{ contact.messages[contact.messages.length-1].message }}<span class="message-list-hour">{{ contact.messages[contact.messages.length-1].date }}</span></span>
                             </div>
                             
                         </div>
