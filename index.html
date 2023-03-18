@@ -5,8 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/x-icon" href="../vue-boolzapp/img/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>html</title>
+    <title>Boolzapp</title>
 </head>
 <body>
     <div id="app">
@@ -26,8 +27,8 @@
 
                     <!-- User image -->
                     <div class="user d-flex">
-                        <img class="user-image" src="img/avatar_io.jpg" alt="Sofia">
-                        <span>Sofia</span>
+                        <img class="user-image" src="img/okk.jpg" alt="Sofia">
+                        <span>Giovanni Treglia</span>
                     </div>
 
                     <!-- User buttons -->
@@ -45,7 +46,7 @@
                     <span id="notification-bell"><i class="fa-solid fa-bell-slash"></i></span>
                         <div class="user-data d-flex">
                             <span>Ricevi notifiche di nuovi messaggi</span>
-                            <span class="last-access"><a href="#">Attiva notifiche desktop</a></span>
+                            <span class="last-message"><a href="#">Attiva notifiche desktop</a></span>
                         </div>
                 </div>
 
@@ -67,9 +68,8 @@
                             <img class="user-image" :src="contact.avatar" :alt="contact.name">
                             <div class="user-data d-flex">
                                 <span>{{ contact.name }}</span>
-                                <span class="last-access">Ultimo accesso oggi alle 12.00</span>
+                                <span class="last-message" v-for="(message, i) in contacts[index].messages">{{ message.message }} {{i}}<span class="message-list-hour">{{ message.date }}</span></span>                             
                             </div>
-                            <span class="message-list-hour">12:00</span>
                         </div>
                     </div>
 
@@ -78,9 +78,9 @@
                             <img class="user-image" :src="contact.avatar" :alt="contact.name">
                             <div class="user-data d-flex">
                                 <span>{{ contact.name }}</span>
-                                <span class="last-access">Ultimo accesso oggi alle 12.00</span>
+                                <span class="last-message" v-for="(message, i) in contact.messages">{{ message.message }}<span class="message-list-hour">{{ message.date }}</span></span>
                             </div>
-                            <span class="message-list-hour">12:00</span>
+                            
                         </div>
                     </div>
 
@@ -115,7 +115,7 @@
                 <div id="message-area" class="d-flex">
                     <div class="message d-flex" v-for="(message, index) in contacts[activeContact].messages" :class="message.status == 'sent'?'sent':'received'" v-if="contacts[activeContact].messages.length">
                         <span class="message-text">{{ message.message }}</span>
-                        <span class="message-hour">15:30 <span class="chevron" @click="message.visibleDrop = !message.visibleDrop"><i class="fa-solid fa-chevron-down"></i></span></span>
+                        <span class="message-hour">{{ message.date }} <span class="chevron" @click="message.visibleDrop = !message.visibleDrop"><i class="fa-solid fa-chevron-down"></i></span></span>
                         <div class="dropdown" v-show="message.visibleDrop">
                             <span class="dropdown-text">{{ message.messageInfo }}</span>
                             <span class="dropdown-text" @click="deleteMessage(index)">{{ message.deleteMessage}}</span>
@@ -141,7 +141,6 @@
 
     </div>
 
-    <script src="luxon.js"></script>
     <script src='https://unpkg.com/vue@3/dist/vue.global.js'></script>
     <script type="text/javascript" src="js/main.js"></script>
 </body>

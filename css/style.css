@@ -167,13 +167,13 @@ body {
     margin-left: 10px;
 }
 
-.last-access {
+.last-message {
     font-size: 0.8rem;
     margin-top: 5px;
     color: rgb(177, 177, 177);
 }
 
-.last-access a {
+.last-message a {
     color: rgb(112, 149, 150);
 }
 

@@ -13,7 +13,7 @@ const { createApp } = Vue
           visible: true,
           messages: [
                       {
-                        date: '10/01/2020 15:30:55',
+                        date: this.newDate(),
                         message: 'Hai portato a spasso il cane?',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -21,7 +21,7 @@ const { createApp } = Vue
                         visibleDrop: false    
                       },
                       {
-                        date: '10/01/2020 15:50:00',
+                        date: this.newDate(),
                         message: 'Ricordati di stendere i panni',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -29,7 +29,7 @@ const { createApp } = Vue
                         visibleDrop: false    
                       },
                       {
-                        date: '10/01/2020 16:15:22',
+                        date: this.newDate(),
                         message: 'Tutto fatto!',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -43,7 +43,7 @@ const { createApp } = Vue
           visible: true,
           messages: [
                       {
-                        date: '20/03/2020 16:30:00',
+                        date: this.newDate(),
                         message: 'Ciao come stai?',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -51,7 +51,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: '20/03/2020 16:30:55',
+                        date: this.newDate(),
                         message: 'Bene grazie! Stasera ci vediamo?',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -59,7 +59,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: '20/03/2020 16:35:00',
+                        date: this.newDate(),
                         message: 'Mi piacerebbe ma devo andare a fare la spesa.',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -73,7 +73,7 @@ const { createApp } = Vue
           visible: true,
           messages: [
                       {
-                        date: '28/03/2020 10:10:40',
+                        date: this.newDate(),
                         message: 'La Marianna va in campagna',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -81,7 +81,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: '28/03/2020 10:20:10',
+                        date: this.newDate(),
                         message: 'Sicuro di non aver sbagliato chat?',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -89,7 +89,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: '28/03/2020 16:15:22',
+                        date: this.newDate(),
                         message: 'Ah scusa!',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -103,7 +103,7 @@ const { createApp } = Vue
           visible: true,
           messages: [
                       {
-                        date: '10/01/2020 15:30:55',
+                        date: this.newDate(),
                         message: 'Lo sai che ha aperto una nuova pizzeria?',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -111,7 +111,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: '10/01/2020 15:50:00',
+                        date: this.newDate(),
                         message: 'Si, ma preferirei andare al cinema',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -125,7 +125,7 @@ const { createApp } = Vue
           visible: true,
           messages: [
                       {
-                        date: '10/01/2020 15:30:55',
+                        date: this.newDate(),
                         message: 'Ricordati di chiamare la nonna',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -133,7 +133,7 @@ const { createApp } = Vue
                         visibleDrop: false      
                       },
                       {
-                        date: '10/01/2020 15:50:00',
+                        date: this.newDate(),
                         message: 'Va bene, stasera la sento',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -143,11 +143,11 @@ const { createApp } = Vue
           ]},
           {
           name: 'Claudia',
-          avatar: './img/avatar_5.jpg',
+          avatar: './img/avatar_6.jpg',
           visible: true,
           messages: [
                       {
-                        date: '10/01/2020 15:30:55',
+                        date: this.newDate(),
                         message: 'Ciao Claudia, hai novità?',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -155,7 +155,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: '10/01/2020 15:50:00',
+                        date: this.newDate(),
                         message: 'Non ancora',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -163,7 +163,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: '10/01/2020 15:51:00',
+                        date: this.newDate(),
                         message: 'Nessuna nuova, buona nuova',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -177,7 +177,7 @@ const { createApp } = Vue
           visible: true,
           messages: [
                       {
-                        date: '10/01/2020 15:30:55',
+                        date: this.newDate(),
                         message: 'Fai gli auguri a Martina che è il suo compleanno!',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -185,7 +185,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: '10/01/2020 15:50:00',
+                        date: this.newDate(),
                         message: 'Grazie per avermelo ricordato, le scrivo subito!',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -199,7 +199,7 @@ const { createApp } = Vue
           visible: true,
           messages: [
                       {
-                        date: '10/01/2020 15:30:55',
+                        date: this.newDate(),
                         message: 'Ciao, andiamo a mangiare la pizza stasera?',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -207,7 +207,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: '10/01/2020 15:50:00',
+                        date: this.newDate(),
                         message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -215,7 +215,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: '10/01/2020 15:51:00',
+                        date: this.newDate(),
                         message: 'OK!!',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -229,7 +229,7 @@ const { createApp } = Vue
             visible: true,
             messages: [
                         {
-                          date: '10/01/2020 15:30:55',
+                          date: this.newDate(),
                           message: 'Ciao, andiamo a mangiare la pizza stasera?',
                           status: 'received',
                           messageInfo: 'Message info',
@@ -237,7 +237,7 @@ const { createApp } = Vue
                           visibleDrop: false  
                         },
                         {
-                          date: '10/01/2020 15:50:00',
+                          date: this.newDate(),
                           message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
                           status: 'sent',
                           messageInfo: 'Message info',
@@ -245,7 +245,7 @@ const { createApp } = Vue
                           visibleDrop: false  
                         },
                         {
-                          date: '10/01/2020 15:51:00',
+                          date: this.newDate(),
                           message: 'OK!!',
                           status: 'received',
                           messageInfo: 'Message info',
@@ -254,7 +254,7 @@ const { createApp } = Vue
                         }
           ]}
       ],
-      filteredContacts : []
+      filteredContacts : [],
     }
   },
   methods: {
@@ -267,9 +267,12 @@ const { createApp } = Vue
     // Milestone 3
     addMessage(index) {
       let newMessage = {
-        date: 'adesso',
+        date: this.newDate(),
         message: this.newMessageText,
-        status: 'sent'
+        status: 'sent',
+        messageInfo: 'Message info',
+        deleteMessage: 'Delete message',
+        visibleDrop: false           
       }
       console.log(this.contacts[index].messages);
       this.contacts[index].messages.push(newMessage);
@@ -281,9 +284,13 @@ const { createApp } = Vue
 
     receiveMessage() {
       let newMessage = {
-        date: 'adesso',
+        date: this.newDate(),
         message: 'ok!',
-        status: 'received'
+        status: 'received',
+        messageInfo: 'Message info',
+        deleteMessage: 'Delete message',
+        visibleDrop: false    
+
       }
       return newMessage;
     },
@@ -314,8 +321,29 @@ const { createApp } = Vue
       this.filteredContacts = filteredContacts;
       },
       
+      // Milestone 5
       deleteMessage(index) {
         this.contacts[this.activeContact].messages.splice(index, 1);
       },
+
+      newDate() {
+        let data = new Date();
+        let hour, minutes;
+        hour = data.getHours() + ":";
+        minutes = data.getMinutes();
+        if (minutes < 10) {
+          minutes = '0' + minutes;
+        }
+        let orario = hour + minutes;
+        return orario;
+      },
+
+      date() {
+        
+        this.contacts.forEach(element => {
+          element.messages.date = element.messages.date.substr(12, 6);
+          
+        });
+      }
   },
 }).mount('#app')
