@@ -54,7 +54,7 @@ body {
 }
 
 #right-container {
-    flex-grow: 1;
+    width: 70%;
 }
 
 .app-header {
@@ -225,7 +225,49 @@ body {
     background-color: white;
 }
 
+.chevron {
+    color: rgb(177, 177, 177);
+    display: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: absolute;
+    right: 20px;
+    bottom: -60px;
+    width: 150px;
+    height: 70px;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    box-shadow: 2px 2px lightgrey;
+}
+
+#nomessage-info {
+    width: 60%;
+    line-height: 1.2rem;
+    text-align: center;
+    margin: 20px auto;
+    font-size: 0.9rem;
+    padding: 20px;
+    display: inline-block;
+    border-radius: 10px;
+    background-color: rgb(255, 245, 186);
+}
+
+.dropdown-text {
+    cursor: pointer;
+}
+
 /* Hover */
 .user-message:hover {
     background-color: rgb(234, 234, 234);
+}
+
+.message-hour:hover .chevron {
+    display: inline;
 }
