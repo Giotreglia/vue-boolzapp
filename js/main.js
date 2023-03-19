@@ -252,9 +252,24 @@ const { createApp } = Vue
                           deleteMessage: 'Delete message',
                           visibleDrop: false  
                         }
+          ]},
+          {
+            name: 'Chat GPT',
+            avatar: './img/ChatGPT_logo.svg.png',
+            visible: true,
+            messages: [
+                        {
+                          date: this.newDate(),
+                          message: 'Ciao, chiedimi quello che vuoi e ti aiuterò!',
+                          status: 'received',
+                          messageInfo: 'Message info',
+                          deleteMessage: 'Delete message',
+                          visibleDrop: false  
+                        }
           ]}
       ],
       filteredContacts : [],
+      txtOutput: ''
     }
   },
   methods: {
@@ -283,15 +298,32 @@ const { createApp } = Vue
     },
 
     receiveMessage() {
-      let newMessage = {
-        date: this.newDate(),
-        message: 'ok!',
-        status: 'received',
-        messageInfo: 'Message info',
-        deleteMessage: 'Delete message',
-        visibleDrop: false    
+      let newMessage;
+      if (this.contacts[this.activeContact].name !== 'Chat GPT') {
+        
+          newMessage = {
+          date: this.newDate(),
+          message: 'ok!',
+          status: 'received',
+          messageInfo: 'Message info',
+          deleteMessage: 'Delete message',
+          visibleDrop: false 
 
+          
+          
+      }} else {
+
+            newMessage = {
+            date: this.newDate(),
+            message: txtOutput,
+            status: 'received',
+            messageInfo: 'Message info',
+            deleteMessage: 'Delete message',
+            visibleDrop: false    
+  
+        }
       }
+
       return newMessage;
     },
 
@@ -344,6 +376,84 @@ const { createApp } = Vue
           element.messages.date = element.messages.date.substr(12, 6);
           
         });
-      }
+      },
+
+      // Chat GPT
+      Send() {
+
+        var selLang = "en-US"
+    
+        var sQuestion = txtMsg.value;
+        if (sQuestion == "") {
+            alert("Type in your question!");
+            txtMsg.focus();
+            return;
+        }
+    
+        var oHttp = new XMLHttpRequest();
+        oHttp.open("POST", "https://api.openai.com/v1/completions");
+        oHttp.setRequestHeader("Accept", "application/json");
+        oHttp.setRequestHeader("Content-Type", "application/json");
+        oHttp.setRequestHeader("Authorization", "Bearer " + "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")
+    
+        oHttp.onreadystatechange = function () {
+            if (oHttp.readyState === 4) {
+                //console.log(oHttp.status);
+                var oJson = {}
+                if (txtOutput.value != "") txtOutput.value += "\n";
+    
+                try {
+                    oJson = JSON.parse(oHttp.responseText);
+                } catch (ex) {
+                    txtOutput.value += "Error: " + ex.message
+                }
+    
+                if (oJson.error && oJson.error.message) {
+                    txtOutput.value += "Error: " + oJson.error.message;
+                } else if (oJson.choices && oJson.choices[0].text) {
+                    var s = oJson.choices[0].text;
+    
+                    if (selLang.value != "en-US") {
+                        var a = s.split("?\n");
+                        if (a.length == 2) {
+                            s = a[1];
+                        }
+                    }
+    
+                    if (s == "") s = "No response";
+                    txtOutput.value += "Chat GPT: " + s;
+                    TextToSpeech(s);
+                }            
+            }
+        };
+    
+        var sModel = "text-davinci-003";
+        var iMaxTokens = 2048;
+        var sUserId = "1";
+        var dTemperature = 0.5;    
+    
+        var data = {
+            model: sModel,
+            prompt: sQuestion,
+            max_tokens: iMaxTokens,
+            user: sUserId,
+            temperature:  dTemperature,
+            frequency_penalty: 0.0, //Number between -2.0 and 2.0  
+                                    //Positive values decrease the model's likelihood 
+                                    //to repeat the same line verbatim.
+            presence_penalty: 0.0,  //Number between -2.0 and 2.0. 
+                                    //Positive values increase the model's likelihood 
+                                    //to talk about new topics.
+            stop: ["#", ";"]        //Up to 4 sequences where the API will stop 
+                                    //generating further tokens. The returned text 
+                                    //will not contain the stop sequence.
+        }
+    
+        oHttp.send(JSON.stringify(data));
+    
+        if (txtOutput.value != "") txtOutput.value += "\n";
+        txtOutput.value += "Me: " + sQuestion;
+        txtMsg.value = "";
+    }
   },
 }).mount('#app')

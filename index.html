@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" type="image/x-icon" href="../vue-boolzapp/img/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="js/ChatGPT.js?v=12"></script>
     <title>Boolzapp</title>
 </head>
 <body>
@@ -44,9 +45,9 @@
                 <!-- Notifiche -->
                 <div id="notification" class="d-flex">
                     <span id="notification-bell"><i class="fa-solid fa-bell-slash"></i></span>
-                        <div class="user-data d-flex">
+                        <div class="user-data-notification d-flex">
                             <span>Ricevi notifiche di nuovi messaggi</span>
-                            <span class="last-message"><a href="#">Attiva notifiche desktop</a></span>
+                            <p class="last-message"><a href="#">Attiva notifiche desktop</a></p>
                         </div>
                 </div>
 
@@ -68,7 +69,8 @@
                             <img class="user-image" :src="contact.avatar" :alt="contact.name">
                             <div class="user-data d-flex">
                                 <span>{{ contact.name }}</span>
-                                <span class="last-message">{{ contact.messages[contact.messages.length-1].message }}<span class="message-list-hour">{{ contact.messages[contact.messages.length-1].date }}</span></span>                             
+                                <span class="last-message" v-if="contact.messages.length > 0">{{ contact.messages[contact.messages.length-1].message }}<span class="message-list-hour">{{ contact.messages[contact.messages.length-1].date }}</span></span>                             
+                                <span class="last-message" v-else></span>
                             </div>
                         </div>
                     </div>
@@ -78,7 +80,8 @@
                             <img class="user-image" :src="contact.avatar" :alt="contact.name">
                             <div class="user-data d-flex">
                                 <span>{{ contact.name }}</span>
-                                <span class="last-message">{{ contact.messages[contact.messages.length-1].message }}<span class="message-list-hour">{{ contact.messages[contact.messages.length-1].date }}</span></span>
+                                <span class="last-message" v-if="contact.messages.length > 0">{{ contact.messages[contact.messages.length-1].message }}<span class="message-list-hour">{{ contact.messages[contact.messages.length-1].date }}</span></span>
+                                <span class="last-message" v-else></span>
                             </div>
                             
                         </div>
@@ -96,9 +99,9 @@
                 <div class="app-header d-flex">
                     <div class="user d-flex">
                         <img class="user-image" :src="contacts[activeContact].avatar" :alt="contacts[activeContact].name">
-                        <div class="user-data d-flex">
+                        <div class="user-data-notification d-flex">
                             <span>{{ contacts[activeContact].name }}</span>
-                            <span class="last-access">Ultimo accesso oggi alle 12.00</span>
+                            <span class="last-message-up">Ultimo accesso oggi alle {{ contacts[activeContact].messages[contacts[activeContact].messages.length -1].date }}</span>
                         </div>
                     </div>
 
@@ -114,7 +117,8 @@
                 <!-- Area testi messaggi -->
                 <div id="message-area" class="d-flex">
                     <div class="message d-flex" v-for="(message, index) in contacts[activeContact].messages" :class="message.status == 'sent'?'sent':'received'" v-if="contacts[activeContact].messages.length">
-                        <span class="message-text">{{ message.message }}</span>
+                        <span class="message-text" v-if="contacts[activeContact].name !== 'Chat GPT'">{{ message.message }}</span>
+                        <textarea id="txtOutput" v-else></textarea>
                         <span class="message-hour">{{ message.date }} <span class="chevron" @click="message.visibleDrop = !message.visibleDrop"><i class="fa-solid fa-chevron-down"></i></span></span>
                         <div class="dropdown" v-show="message.visibleDrop">
                             <span class="dropdown-text">{{ message.messageInfo }}</span>
@@ -131,7 +135,8 @@
                 <!-- Input message -->
                 <div id="message-input-container" class="d-flex">
                     <label for="message-input"><i class="fa-regular fa-face-smile"></i></label>
-                    <input id="message-input" type="text" placeholder="Scrivi un messaggio" v-model="newMessageText" @keyup.enter="addMessage(activeContact)">
+                    <input id="message-input" type="text" placeholder="Scrivi un messaggio" v-model="newMessageText" @keyup.enter="addMessage(activeContact)" v-if="contacts[activeContact].name !== 'Chat GPT'">
+                    <input id="txtMsg" type="text" placeholder="Scrivi un messaggio" v-model="newMessageText" @keyup.enter="Send" v-else>
                     <span><i class="fa-solid fa-microphone"></i></span>
                 </div>
             </div>
