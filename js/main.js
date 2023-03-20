@@ -6,11 +6,28 @@ const { createApp } = Vue
         activeContact: 0,
         newMessageText: '',
         filter: '',
+        
         contacts: [
+          {
+            name: 'Conte Mascetti',
+            avatar: './img/idolo.jpg',
+            visible: true,
+            stato: 'Ultimo accesso alle ',
+            messages: [
+                        {
+                          date: this.newDate(),
+                          message: 'Tarapio tapioco come se fosse antani, la supercazzola prematurata con dominus vobiscum blinda?',
+                          status: 'received',
+                          messageInfo: 'Message info',
+                          deleteMessage: 'Delete message',
+                          visibleDrop: false  
+                        }
+          ]},
           {
           name: 'Michele',
           avatar: './img/avatar_1.jpg',
           visible: true,
+          stato: 'Ultimo accesso alle ',
           messages: [
                       {
                         date: this.newDate(),
@@ -41,6 +58,7 @@ const { createApp } = Vue
           name: 'Fabio',
           avatar: './img/avatar_2.jpg',
           visible: true,
+          stato: 'Ultimo accesso alle ',
           messages: [
                       {
                         date: this.newDate(),
@@ -71,6 +89,7 @@ const { createApp } = Vue
           name: 'Samuele',
           avatar: './img/avatar_3.jpg',
           visible: true,
+          stato: 'Ultimo accesso alle ',
           messages: [
                       {
                         date: this.newDate(),
@@ -101,6 +120,7 @@ const { createApp } = Vue
           name: 'Alessandro B.',
           avatar: './img/avatar_4.jpg',
           visible: true,
+          stato: 'Ultimo accesso alle ',
           messages: [
                       {
                         date: this.newDate(),
@@ -123,6 +143,7 @@ const { createApp } = Vue
           name: 'Alessandro L.',
           avatar: './img/avatar_5.jpg',
           visible: true,
+          stato: 'Ultimo accesso alle ',
           messages: [
                       {
                         date: this.newDate(),
@@ -145,6 +166,7 @@ const { createApp } = Vue
           name: 'Claudia',
           avatar: './img/avatar_6.jpg',
           visible: true,
+          stato: 'Ultimo accesso alle ',
           messages: [
                       {
                         date: this.newDate(),
@@ -175,6 +197,7 @@ const { createApp } = Vue
           name: 'Federico',
           avatar: './img/avatar_7.jpg',
           visible: true,
+          stato: 'Ultimo accesso alle ',
           messages: [
                       {
                         date: this.newDate(),
@@ -197,6 +220,7 @@ const { createApp } = Vue
           name: 'Davide',
           avatar: './img/avatar_8.jpg',
           visible: true,
+          stato: 'Ultimo accesso alle ',
           messages: [
                       {
                         date: this.newDate(),
@@ -227,6 +251,7 @@ const { createApp } = Vue
             name: 'Davide',
             avatar: './img/avatar_8.jpg',
             visible: true,
+            stato: 'Ultimo accesso alle ',
             messages: [
                         {
                           date: this.newDate(),
@@ -253,27 +278,15 @@ const { createApp } = Vue
                           visibleDrop: false  
                         }
           ]},
-          {
-            name: 'Chat GPT',
-            avatar: './img/ChatGPT_logo.svg.png',
-            visible: true,
-            messages: [
-                        {
-                          date: this.newDate(),
-                          message: 'Ciao, chiedimi quello che vuoi e ti aiuterò!',
-                          status: 'received',
-                          messageInfo: 'Message info',
-                          deleteMessage: 'Delete message',
-                          visibleDrop: false  
-                        }
-          ]}
       ],
       filteredContacts : [],
-      txtOutput: ''
-    }
+      randomAntaniAnswers: ['vicesindaco', 'prefettura', 'ha clacsonato?', 'Antani, blinda la supercazzola prematurata con doppio scappellamento a destra?', 'Eh? Antani, come se fosse Antani, anche per il direttore, la supercazzola con scappellamento!', 'Tarapia tapioco! Prematurata la supercazzola o scherziamo?', 'No, mi permetta, no io... Scusi, noi siamo in quattro, come se fosse antani anche per lei soltanto in due oppure in quattro anche scribai con cofandina, come antifurto, per esempio.', "a no, aspetti, mi porga l'indice, ecco lo alzi così, guardi, guardi, guardi, lo vede il dito, lo vede che stuzzica, e prematura anche! Ma, allora io le potrei dire, anche col rispetto per l'autorità, che anche soltanto le due cose come vicesindaco, capisce?", "No! No! Attenzione, no, pastène soppaltate secondo l'articolo 12, abbia pazienza, sennò posterdati per due anche un pochino antani in prefettura!"],  
+      randomAnswers: ['grazie', 'tua sorella!', 'ahahahahha', 'a presto!', 'birretta stasera?', 'ottimo, a dopo!'],
+
+      }
   },
   methods: {
-
+    
     // Milestone 2
     changeContact(index) {
       this.activeContact = index;
@@ -281,6 +294,7 @@ const { createApp } = Vue
 
     // Milestone 3
     addMessage(index) {
+      
       let newMessage = {
         date: this.newDate(),
         message: this.newMessageText,
@@ -295,43 +309,45 @@ const { createApp } = Vue
         this.contacts[index].messages.push(newMessage);
         this.newMessageText = '';
 
-        setTimeout(this.pushMessage, 1000);
+        this.contacts[this.activeContact].stato = 'sta scrivendo...'
+        setTimeout(this.pushMessage, 3000);
+        setTimeout(this.changeStatusOnline, 3000)
+        setTimeout(this.changeStatusLastAccess, 6000)
       }
     },
 
     receiveMessage() {
       let newMessage;
-      if (this.contacts[this.activeContact].name !== 'Chat GPT') {
-        
-          newMessage = {
-          date: this.newDate(),
-          message: 'ok!',
-          status: 'received',
-          messageInfo: 'Message info',
-          deleteMessage: 'Delete message',
-          visibleDrop: false 
-
-          
-          
-      }} else {
+      if (this.contacts[this.activeContact].name == 'Conte Mascetti') {
 
             newMessage = {
             date: this.newDate(),
-            message: txtOutput,
+            message: this.randomAnswerGenerator(this.randomAntaniAnswers),
             status: 'received',
             messageInfo: 'Message info',
             deleteMessage: 'Delete message',
-            visibleDrop: false    
+            visibleDrop: false 
   
         }
+      } else {
+
+            newMessage = {
+            date: this.newDate(),
+            message: this.randomAnswerGenerator(this.randomAnswers),
+            status: 'received',
+            messageInfo: 'Message info',
+            deleteMessage: 'Delete message',
+            visibleDrop: false 
       }
 
       return newMessage;
-    },
+    }},
 
     pushMessage() {
+      
       let newReceivedMessage = this.receiveMessage();
       this.contacts[this.activeContact].messages.push(newReceivedMessage);
+      
     },
 
     //Milestone 4
@@ -348,7 +364,6 @@ const { createApp } = Vue
       });
       console.log(this.contacts);
 
-
       let filteredContacts = this.contacts.filter((item) => item.visible);
       console.log(filteredContacts);
 
@@ -363,101 +378,41 @@ const { createApp } = Vue
       newDate() {
         let data = new Date();
         let hour, minutes;
-        hour = data.getHours() + ":";
+        hour = data.getHours();
         minutes = data.getMinutes();
         if (minutes < 10) {
           minutes = '0' + minutes;
         } else if (hour < 10) {
-          hour = '0' + hour
+          hour = '0' + hour;
         }
-        let orario = hour + minutes;
+        let orario = hour + ':' + minutes;
         return orario;
       },
 
-      date() {
-        
-        this.contacts.forEach(element => {
-          element.messages.date = element.messages.date.substr(12, 6);
-          
-        });
-      },
+    // Random Answers
+    randomNumber(min, max) {
+      let randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
+      return randomNumber;
+    },
+    randomAnswerGenerator(array) {
+      for (let i = 0; i < array.length; i++) {
+        let answer = array[this.randomNumber(0, array.length - 1)];
+        return answer;
+      }
+    },
 
-      // Chat GPT
-      Send() {
+    // Cambio stato
+    changeStatusOnline() {
+      this.contacts[this.activeContact].stato = 'online';
+    },
 
-        var selLang = "en-US"
-    
-        var sQuestion = txtMsg.value;
-        if (sQuestion == "") {
-            alert("Type in your question!");
-            txtMsg.focus();
-            return;
-        }
-    
-        var oHttp = new XMLHttpRequest();
-        oHttp.open("POST", "https://api.openai.com/v1/completions");
-        oHttp.setRequestHeader("Accept", "application/json");
-        oHttp.setRequestHeader("Content-Type", "application/json");
-        oHttp.setRequestHeader("Authorization", "Bearer " + "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")
-    
-        oHttp.onreadystatechange = function () {
-            if (oHttp.readyState === 4) {
-                //console.log(oHttp.status);
-                var oJson = {}
-                if (txtOutput.value != "") txtOutput.value += "\n";
-    
-                try {
-                    oJson = JSON.parse(oHttp.responseText);
-                } catch (ex) {
-                    txtOutput.value += "Error: " + ex.message
-                }
-    
-                if (oJson.error && oJson.error.message) {
-                    txtOutput.value += "Error: " + oJson.error.message;
-                } else if (oJson.choices && oJson.choices[0].text) {
-                    var s = oJson.choices[0].text;
-    
-                    if (selLang.value != "en-US") {
-                        var a = s.split("?\n");
-                        if (a.length == 2) {
-                            s = a[1];
-                        }
-                    }
-    
-                    if (s == "") s = "No response";
-                    txtOutput.value += "Chat GPT: " + s;
-                    TextToSpeech(s);
-                }            
-            }
-        };
-    
-        var sModel = "text-davinci-003";
-        var iMaxTokens = 2048;
-        var sUserId = "1";
-        var dTemperature = 0.5;    
-    
-        var data = {
-            model: sModel,
-            prompt: sQuestion,
-            max_tokens: iMaxTokens,
-            user: sUserId,
-            temperature:  dTemperature,
-            frequency_penalty: 0.0, //Number between -2.0 and 2.0  
-                                    //Positive values decrease the model's likelihood 
-                                    //to repeat the same line verbatim.
-            presence_penalty: 0.0,  //Number between -2.0 and 2.0. 
-                                    //Positive values increase the model's likelihood 
-                                    //to talk about new topics.
-            stop: ["#", ";"]        //Up to 4 sequences where the API will stop 
-                                    //generating further tokens. The returned text 
-                                    //will not contain the stop sequence.
-        }
-    
-        oHttp.send(JSON.stringify(data));
-    
-        if (txtOutput.value != "") txtOutput.value += "\n";
-        txtOutput.value += "Me: " + sQuestion;
-        txtMsg.value = "";
+    changeStatusLastAccess() {
+      this.contacts[this.activeContact].stato = 'Ultimo accesso alle ' + this.contacts[this.activeContact].messages[this.contacts[this.activeContact].messages.length - 1].date;
     }
+    
+
   },
 }).mount('#app')
+
+
+
