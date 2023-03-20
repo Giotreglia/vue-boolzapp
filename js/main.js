@@ -290,11 +290,13 @@ const { createApp } = Vue
         visibleDrop: false           
       }
       console.log(this.contacts[index].messages);
-      this.contacts[index].messages.push(newMessage);
-      this.newMessageText = '';
+      if (newMessage.message.length > 0) {
+        
+        this.contacts[index].messages.push(newMessage);
+        this.newMessageText = '';
 
-      
-      setTimeout(this.pushMessage, 1000);
+        setTimeout(this.pushMessage, 1000);
+      }
     },
 
     receiveMessage() {
@@ -365,6 +367,8 @@ const { createApp } = Vue
         minutes = data.getMinutes();
         if (minutes < 10) {
           minutes = '0' + minutes;
+        } else if (hour < 10) {
+          hour = '0' + hour
         }
         let orario = hour + minutes;
         return orario;
