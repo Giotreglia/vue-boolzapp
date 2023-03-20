@@ -137,7 +137,8 @@
                     <label for="message-input"><i class="fa-regular fa-face-smile"></i></label>
                     <input id="message-input" type="text" placeholder="Scrivi un messaggio" v-model="newMessageText" @keyup.enter="addMessage(activeContact)" v-if="contacts[activeContact].name !== 'Chat GPT'">
                     <input id="txtMsg" type="text" placeholder="Scrivi un messaggio" v-model="newMessageText" @keyup.enter="Send" v-else>
-                    <span><i class="fa-solid fa-microphone"></i></span>
+                    <span v-if="newMessageText.length == 0"><i class="fa-solid fa-microphone"></i></span>
+                    <span id="send-button" v-else @click="addMessage(activeContact)"><i class="fa-solid fa-paper-plane"></i></span>
                 </div>
             </div>
             

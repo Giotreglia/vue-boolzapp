@@ -279,6 +279,10 @@ body {
     cursor: pointer;
 }
 
+#send-button {
+    cursor: pointer;
+}
+
 /* Hover */
 .user-message:hover {
     background-color: rgb(234, 234, 234);
