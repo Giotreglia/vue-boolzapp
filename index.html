@@ -68,7 +68,7 @@
                             <img class="user-image" :src="contact.avatar" :alt="contact.name">
                             <div class="user-data d-flex">
                                 <span>{{ contact.name }}</span>
-                                <span class="last-message" v-if="contact.messages.length > 0">{{ contact.messages[contact.messages.length-1].message }}<span class="message-list-hour">{{ contact.messages[contact.messages.length-1].date }}</span></span>                             
+                                <span class="last-message" v-if="contact.messages.length > 0">{{ contact.messages[contact.messages.length-1].message }}<span class="message-list-hour" v-if="contact.messages.length > 0">{{ contact.messages[contact.messages.length-1].date }}</span></span>                             
                                 <span class="last-message" v-else></span>
                             </div>
                         </div>

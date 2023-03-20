@@ -318,7 +318,7 @@ const { createApp } = Vue
 
     receiveMessage() {
       let newMessage;
-      if (this.contacts[this.activeContact].name == 'Conte Mascetti') {
+/*       if (this.contacts[this.activeContact].name == 'Conte Mascetti') {
 
             newMessage = {
             date: this.newDate(),
@@ -328,20 +328,19 @@ const { createApp } = Vue
             deleteMessage: 'Delete message',
             visibleDrop: false 
   
-        }
-      } else {
+        } */
 
-            newMessage = {
-            date: this.newDate(),
-            message: this.randomAnswerGenerator(this.randomAnswers),
-            status: 'received',
-            messageInfo: 'Message info',
-            deleteMessage: 'Delete message',
-            visibleDrop: false 
-      }
+      newMessage = {
+      date: this.newDate(),
+      message: this.randomAnswerGenerator(this.randomAntaniAnswers),
+      status: 'received',
+      messageInfo: 'Message info',
+      deleteMessage: 'Delete message',
+      visibleDrop: false,} 
+      
 
       return newMessage;
-    }},
+    },
 
     pushMessage() {
       
