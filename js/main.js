@@ -12,6 +12,7 @@ const { createApp } = Vue
             name: 'Conte Mascetti',
             avatar: './img/idolo.jpg',
             visible: true,
+            visibleDropUp: false,
             stato: 'Ultimo accesso alle ',
             messages: [
                         {
@@ -27,6 +28,7 @@ const { createApp } = Vue
           name: 'Michele',
           avatar: './img/avatar_1.jpg',
           visible: true,
+          visibleDropUp: false,
           stato: 'Ultimo accesso alle ',
           messages: [
                       {
@@ -58,6 +60,7 @@ const { createApp } = Vue
           name: 'Fabio',
           avatar: './img/avatar_2.jpg',
           visible: true,
+          visibleDropUp: false,
           stato: 'Ultimo accesso alle ',
           messages: [
                       {
@@ -89,6 +92,7 @@ const { createApp } = Vue
           name: 'Samuele',
           avatar: './img/avatar_3.jpg',
           visible: true,
+          visibleDropUp: false,
           stato: 'Ultimo accesso alle ',
           messages: [
                       {
@@ -120,6 +124,7 @@ const { createApp } = Vue
           name: 'Alessandro B.',
           avatar: './img/avatar_4.jpg',
           visible: true,
+          visibleDropUp: false,
           stato: 'Ultimo accesso alle ',
           messages: [
                       {
@@ -143,6 +148,7 @@ const { createApp } = Vue
           name: 'Alessandro L.',
           avatar: './img/avatar_5.jpg',
           visible: true,
+          visibleDropUp: false,
           stato: 'Ultimo accesso alle ',
           messages: [
                       {
@@ -166,6 +172,7 @@ const { createApp } = Vue
           name: 'Claudia',
           avatar: './img/avatar_6.jpg',
           visible: true,
+          visibleDropUp: false,
           stato: 'Ultimo accesso alle ',
           messages: [
                       {
@@ -197,6 +204,7 @@ const { createApp } = Vue
           name: 'Federico',
           avatar: './img/avatar_7.jpg',
           visible: true,
+          visibleDropUp: false,
           stato: 'Ultimo accesso alle ',
           messages: [
                       {
@@ -220,6 +228,7 @@ const { createApp } = Vue
           name: 'Davide',
           avatar: './img/avatar_8.jpg',
           visible: true,
+          visibleDropUp: false,
           stato: 'Ultimo accesso alle ',
           messages: [
                       {
@@ -251,6 +260,7 @@ const { createApp } = Vue
             name: 'Davide',
             avatar: './img/avatar_8.jpg',
             visible: true,
+            visibleDropUp: false,
             stato: 'Ultimo accesso alle ',
             messages: [
                         {
@@ -259,7 +269,7 @@ const { createApp } = Vue
                           status: 'received',
                           messageInfo: 'Message info',
                           deleteMessage: 'Delete message',
-                          visibleDrop: false  
+                          visibleDrop: false, 
                         },
                         {
                           date: this.newDate(),
@@ -372,6 +382,14 @@ const { createApp } = Vue
       // Milestone 5
       deleteMessage(index) {
         this.contacts[this.activeContact].messages.splice(index, 1);
+      },
+
+      deleteMessages() {
+        this.contacts[this.activeContact].messages.splice(0, 9999999999);
+      },
+
+      deleteChat() {
+        this.contacts.splice(this.activeContact, 1);
       },
 
       newDate() {

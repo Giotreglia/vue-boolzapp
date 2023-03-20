@@ -108,7 +108,11 @@
                     <div class="user-buttons d-flex">
                         <span><i class="fa-solid fa-magnifying-glass"></i></span>
                         <span><i class="fa-solid fa-paperclip"></i></span>
-                        <span><i class="fa-solid fa-ellipsis-vertical"></i></span>
+                        <span><i class="fa-solid fa-ellipsis-vertical" @click="contacts[activeContact].visibleDropUp = !contacts[activeContact].visibleDropUp"></i></span>
+                        <div class="dropdown" v-show="contacts[activeContact].visibleDropUp">
+                            <span class="dropdown-text" @click="deleteMessages">Elimina messaggi</span>
+                            <span class="dropdown-text" @click="deleteChat">Elimina chat</span>
+                        </div>
                     </div>
 
                 </div>
