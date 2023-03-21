@@ -5,6 +5,9 @@ const { createApp } = Vue
       return {
         activeContact: 0,
         emoji: false,
+        addContactShow: false,
+        addContactName: '',
+        addContactImg: '',
         newMessageText: '',
         filter: '',
         
@@ -417,6 +420,21 @@ const { createApp } = Vue
 
     addEmoji(index) {
       this.newMessageText += this.emojis[index];
+    },
+
+    // Aggiunta contatti
+    addContact() {
+      let newContact = 
+      {
+        name: this.addContactName,
+        avatar: this.addContactImg,
+        visible: true,
+        visibleDropUp: false,
+        stato: '',
+        messages: []
+      }
+
+      this.contacts.unshift(newContact);
     }
     
   },

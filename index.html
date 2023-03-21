@@ -33,6 +33,14 @@
 
                     <!-- User buttons -->
                     <div class="user-buttons d-flex">
+                        <span id="addContactPlus" @click="addContactShow = !addContactShow"><i class="fa-solid fa-plus"></i></span>
+                        <div class="dropdownAdd" v-show="addContactShow">
+                            <label for="newContactName">Inserisci Nome nuovo contatto</label>
+                            <input id="newContactName" type="text" placeholder="Nome" v-model="addContactName">
+                            <label for="newContactImg">Inserisci URL immagine di profilo</label>
+                            <input id="newContactImg" type="text" placeholder="URL immagine" v-model="addContactImg">
+                            <button @click="addContact">Aggiungi contatto</button>
+                        </div>
                         <span><i class="fa-solid fa-circle-notch"></i></span>
                         <span><i class="fa-solid fa-message"></i></span>
                         <span><i class="fa-solid fa-ellipsis-vertical"></i></span>

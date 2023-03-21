@@ -152,7 +152,8 @@ body {
 }
 
 .user-image {
-    height: 100%;
+    height: 55px;
+    width: 55px;
     border-radius: 50%;
     border: solid 1px rgb(233, 233, 233);
 }
@@ -287,6 +288,52 @@ body {
     padding: 10px;
     box-shadow: 2px 2px lightgrey;
     overflow-y: auto;
+}
+
+.dropdownAdd {
+    position: absolute;
+    right: 20px;
+    bottom: -200px;
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px 10px;
+    box-shadow: 2px 2px lightgrey;
+    background-color: rgb(243, 238, 234);
+}
+
+#addContactPlus {
+    color: rgb(0, 150, 136);
+}
+
+.dropdownAdd label {
+    font-size: 0.8rem;
+    color: black;
+}
+
+.dropdownAdd button {
+    font-size: 0.8rem;
+    margin-top: 10px;
+    padding: 4px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 0;
+    background-color: rgb(0, 150, 136);
+    color: white;
+}
+
+.dropdownAdd input {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
+    border: 0;
 }
 
 .emoji {
