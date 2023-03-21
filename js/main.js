@@ -32,7 +32,7 @@ const { createApp } = Vue
           stato: 'Ultimo accesso alle ',
           messages: [
                       {
-                        date: this.newDate(),
+                        date: '10/01/2020 15:30:55',
                         message: 'Hai portato a spasso il cane?',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -40,7 +40,7 @@ const { createApp } = Vue
                         visibleDrop: false    
                       },
                       {
-                        date: this.newDate(),
+                        date: '10/01/2020 15:50:00',
                         message: 'Ricordati di stendere i panni',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -48,7 +48,7 @@ const { createApp } = Vue
                         visibleDrop: false    
                       },
                       {
-                        date: this.newDate(),
+                        date: '10/01/2020 16:15:22',
                         message: 'Tutto fatto!',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -64,7 +64,7 @@ const { createApp } = Vue
           stato: 'Ultimo accesso alle ',
           messages: [
                       {
-                        date: this.newDate(),
+                        date: '20/03/2020 16:30:00',
                         message: 'Ciao come stai?',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -72,7 +72,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: this.newDate(),
+                        date: '20/03/2020 16:30:55',
                         message: 'Bene grazie! Stasera ci vediamo?',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -80,7 +80,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: this.newDate(),
+                        date: '20/03/2020 16:35:00',
                         message: 'Mi piacerebbe ma devo andare a fare la spesa.',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -96,7 +96,7 @@ const { createApp } = Vue
           stato: 'Ultimo accesso alle ',
           messages: [
                       {
-                        date: this.newDate(),
+                        date: '28/03/2020 10:10:40',
                         message: 'La Marianna va in campagna',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -104,7 +104,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: this.newDate(),
+                        date: '28/03/2020 10:20:10',
                         message: 'Sicuro di non aver sbagliato chat?',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -112,7 +112,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: this.newDate(),
+                        date: '28/03/2020 16:15:22',
                         message: 'Ah scusa!',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -128,7 +128,7 @@ const { createApp } = Vue
           stato: 'Ultimo accesso alle ',
           messages: [
                       {
-                        date: this.newDate(),
+                        date: '10/01/2020 15:30:55',
                         message: 'Lo sai che ha aperto una nuova pizzeria?',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -136,7 +136,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: this.newDate(),
+                        date: '10/01/2020 15:50:00',
                         message: 'Si, ma preferirei andare al cinema',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -152,7 +152,7 @@ const { createApp } = Vue
           stato: 'Ultimo accesso alle ',
           messages: [
                       {
-                        date: this.newDate(),
+                        date: '10/01/2020 15:30:55',
                         message: 'Ricordati di chiamare la nonna',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -160,7 +160,7 @@ const { createApp } = Vue
                         visibleDrop: false      
                       },
                       {
-                        date: this.newDate(),
+                        date: '10/01/2020 15:50:00',
                         message: 'Va bene, stasera la sento',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -176,7 +176,7 @@ const { createApp } = Vue
           stato: 'Ultimo accesso alle ',
           messages: [
                       {
-                        date: this.newDate(),
+                        date: '10/01/2020 15:30:55',
                         message: 'Ciao Claudia, hai novità?',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -184,7 +184,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: this.newDate(),
+                        date: '10/01/2020 15:50:00',
                         message: 'Non ancora',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -192,7 +192,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: this.newDate(),
+                        date: '10/01/2020 15:51:00',
                         message: 'Nessuna nuova, buona nuova',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -208,7 +208,7 @@ const { createApp } = Vue
           stato: 'Ultimo accesso alle ',
           messages: [
                       {
-                        date: this.newDate(),
+                        date: '10/01/2020 15:30:55',
                         message: 'Fai gli auguri a Martina che è il suo compleanno!',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -216,7 +216,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: this.newDate(),
+                        date: '10/01/2020 15:50:00',
                         message: 'Grazie per avermelo ricordato, le scrivo subito!',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -232,7 +232,7 @@ const { createApp } = Vue
           stato: 'Ultimo accesso alle ',
           messages: [
                       {
-                        date: this.newDate(),
+                        date: '10/01/2020 15:30:55',
                         message: 'Ciao, andiamo a mangiare la pizza stasera?',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -240,7 +240,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: this.newDate(),
+                        date: '10/01/2020 15:50:00',
                         message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
                         status: 'sent',
                         messageInfo: 'Message info',
@@ -248,7 +248,7 @@ const { createApp } = Vue
                         visibleDrop: false  
                       },
                       {
-                        date: this.newDate(),
+                        date: '10/01/2020 15:51:00',
                         message: 'OK!!',
                         status: 'received',
                         messageInfo: 'Message info',
@@ -361,17 +361,32 @@ const { createApp } = Vue
       },
 
       newDate() {
+        //10/01/2020 15:50:00
         let data = new Date();
-        let hour, minutes;
+        let day, month, year, hour, minutes, seconds;
+        day = data.getDate();
+        month = data.getMonth() + 1;
+        year = data.getFullYear();
         hour = data.getHours();
         minutes = data.getMinutes();
+        seconds = data.getSeconds();
         if (minutes < 10) {
           minutes = '0' + minutes;
         } else if (hour < 10) {
           hour = '0' + hour;
+        } else if (day < 10) {
+          day = '0' + day;
+        } else if (month < 10) {
+          month = '0' + month;
         }
-        let orario = hour + ':' + minutes;
-        return orario;
+        let dataCompleta = day + '/' + month + '/' + year + ' ' + hour + ':' + minutes + ':' + seconds;
+        return dataCompleta;
+      },
+
+      getTime(date) {
+        const dateSplitted = date.split(' ');
+        const hourMinute = dateSplitted[1].split(':');
+        return `${hourMinute[0]}:${hourMinute[1]}`
       },
 
     // Random Answers

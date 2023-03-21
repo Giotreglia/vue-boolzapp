@@ -128,10 +128,6 @@ body {
     border-radius: 5px;
 }
 
-#txtOutput {
-    border: 0;
-}
-
 #message-input-container i {
     font-size: 20px;
     margin: 0 15px;
@@ -169,7 +165,7 @@ body {
     font-size: 20px;
 }
 
-.user-buttons i {
+.user-buttons i, i {
     cursor: pointer;
 }
 
@@ -186,7 +182,7 @@ body {
 
 .last-message {
     font-size: 0.8rem;
-    width: 450px;
+    max-width: 300px;
     margin-top: 5px;
     color: rgb(177, 177, 177);
     text-overflow: ellipsis;
@@ -230,7 +226,7 @@ body {
     flex-direction: column;
     min-width: 300px;
     max-width: 80%;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     padding: 20px;
     display: inline-block;
     border-radius: 10px;

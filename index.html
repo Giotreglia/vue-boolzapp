@@ -123,7 +123,7 @@
                 <div id="message-area" class="d-flex">
                     <div class="message d-flex" v-for="(message, index) in contacts[activeContact].messages" :class="message.status == 'sent'?'sent':'received'" v-if="contacts[activeContact].messages.length">
                         <span class="message-text">{{ message.message }}</span>
-                        <span class="message-hour">{{ message.date }} <span class="chevron" @click="message.visibleDrop = !message.visibleDrop"><i class="fa-solid fa-chevron-down"></i></span></span>
+                        <span class="message-hour">{{ getTime(message.date) }} <span class="chevron" @click="message.visibleDrop = !message.visibleDrop"><i class="fa-solid fa-chevron-down"></i></span></span>
                         <div class="dropdown" v-show="message.visibleDrop">
                             <span class="dropdown-text">{{ message.messageInfo }}</span>
                             <span class="dropdown-text" @click="deleteMessage(index)">{{ message.deleteMessage}}</span>
