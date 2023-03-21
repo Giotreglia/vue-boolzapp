@@ -41,20 +41,20 @@ body {
 #big-container {
     position: absolute;
     top: 5vh;
-    left: 15vw;
-    width: 70vw;
+    left: 8vw;
+    width: 84vw;
     height: 90vh;
     background-color: white;
     display: flex;
 }
 
 #left-container {
-    width: 30%;
+    width: 45%;
     border-right: solid 1px rgb(214, 214, 214);
 }
 
 #right-container {
-    width: 70%;
+    width: 55%;
 }
 
 .app-header {
@@ -184,7 +184,7 @@ body {
 
 .last-message {
     font-size: 0.8rem;
-    max-width: 300px;
+    max-width: 150px;
     margin-top: 5px;
     color: rgb(177, 177, 177);
     text-overflow: ellipsis;
@@ -221,12 +221,13 @@ body {
     top: 10px;
     font-size: 0.8rem;
     color: rgb(177, 177, 177);
+    display: none;
 }
 
 .message {
     position: relative;
     flex-direction: column;
-    min-width: 300px;
+    min-width: 150px;
     max-width: 80%;
     font-size: 0.8rem;
     padding: 20px;
@@ -294,7 +295,7 @@ body {
     position: absolute;
     right: 20px;
     bottom: -200px;
-    width: 300px;
+    width: 400px;
     height: 200px;
     border-radius: 5px;
     background-color: white;
@@ -305,8 +306,7 @@ body {
     flex-direction: column;
     gap: 10px;
     padding: 20px 10px;
-    box-shadow: 2px 2px lightgrey;
-    background-color: rgb(243, 238, 234);
+    background-color: rgb(234, 234, 234);
 }
 
 #addContactPlus {
@@ -370,4 +370,41 @@ body {
 
 .message-hour:hover .chevron {
     display: inline;
+}
+
+
+/* RESPONSIVE */ 
+
+@media all and (min-width: 992px) {
+    #left-container {
+        width: 40%;
+    }
+
+    #right-container {
+        width: 60%;
+    }
+
+    .message-list-hour {
+        display: inline;
+    }
+
+    .last-message {
+        max-width: 300px;
+    }
+
+    .message {
+        min-width: 300px;
+    }
+}
+
+@media all and (min-width: 1300px) {
+    #left-container {
+        width: 30%;
+    }
+
+    #right-container {
+        width: 70%;
+    }
+
+
 }
