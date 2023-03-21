@@ -140,12 +140,14 @@ body {
 
 .user-message {
     height: 80px;
+    width: 100%;
     border-bottom: solid 1px rgb(224, 224, 224);
     cursor: pointer;
 }
 
 .user {
     height: 100%;
+    width: 100%;
     align-items: center;
     gap: 5px;
     padding: 10px;
@@ -174,6 +176,7 @@ body {
 .user-data {
     flex-direction: column;
     margin-left: 10px;
+    width: 100%;
 }
 
 .user-data-notification {
@@ -183,9 +186,11 @@ body {
 
 .last-message {
     font-size: 0.8rem;
+    width: 450px;
     margin-top: 5px;
     color: rgb(177, 177, 177);
     text-overflow: ellipsis;
+    overflow: hidden;
     white-space: nowrap;
 }
 
@@ -207,7 +212,9 @@ body {
 
 #message-list-container {
     height: calc(100% - 200px);
+    width: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .message-list-hour {

@@ -64,6 +64,7 @@
                     <!-- Messaggio nella lista -->
 
                     <div class="user-message" v-for="(contact, index) in contacts" @click="changeContact(index)" v-if="filter.length == 0">
+                        
                         <div class="user d-flex">
                             <img class="user-image" :src="contact.avatar" :alt="contact.name">
                             <div class="user-data d-flex">
@@ -72,6 +73,7 @@
                                 <span class="last-message" v-else></span>
                             </div>
                         </div>
+                        
                     </div>
 
                     <div class="user-message" v-for="(contact, index) in filteredContacts" @click="changeContact(index)" v-else>

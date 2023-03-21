@@ -255,39 +255,7 @@ const { createApp } = Vue
                         deleteMessage: 'Delete message',
                         visibleDrop: false  
                       }
-          ]},
-          {
-            name: 'Davide',
-            avatar: './img/avatar_8.jpg',
-            visible: true,
-            visibleDropUp: false,
-            stato: 'Ultimo accesso alle ',
-            messages: [
-                        {
-                          date: this.newDate(),
-                          message: 'Ciao, andiamo a mangiare la pizza stasera?',
-                          status: 'received',
-                          messageInfo: 'Message info',
-                          deleteMessage: 'Delete message',
-                          visibleDrop: false, 
-                        },
-                        {
-                          date: this.newDate(),
-                          message: 'No, l\'ho già mangiata ieri, ordiniamo sushi!',
-                          status: 'sent',
-                          messageInfo: 'Message info',
-                          deleteMessage: 'Delete message',
-                          visibleDrop: false  
-                        },
-                        {
-                          date: this.newDate(),
-                          message: 'OK!!',
-                          status: 'received',
-                          messageInfo: 'Message info',
-                          deleteMessage: 'Delete message',
-                          visibleDrop: false  
-                        }
-          ]},
+          ]}
       ],
       filteredContacts : [],
       randomAntaniAnswers: ['vicesindaco', 'prefettura', 'ha clacsonato?', 'Antani, blinda la supercazzola prematurata con doppio scappellamento a destra?', 'Eh? Antani, come se fosse Antani, anche per il direttore, la supercazzola con scappellamento!', 'Tarapia tapioco! Prematurata la supercazzola o scherziamo?', 'No, mi permetta, no io... Scusi, noi siamo in quattro, come se fosse antani anche per lei soltanto in due oppure in quattro anche scribai con cofandina, come antifurto, per esempio.', "a no, aspetti, mi porga l'indice, ecco lo alzi così, guardi, guardi, guardi, lo vede il dito, lo vede che stuzzica, e prematura anche! Ma, allora io le potrei dire, anche col rispetto per l'autorità, che anche soltanto le due cose come vicesindaco, capisce?", "No! No! Attenzione, no, pastène soppaltate secondo l'articolo 12, abbia pazienza, sennò posterdati per due anche un pochino antani in prefettura!"],  
