@@ -13,10 +13,10 @@ const { createApp } = Vue
             avatar: './img/idolo.jpg',
             visible: true,
             visibleDropUp: false,
-            stato: 'Ultimo accesso alle ',
+            stato: '',
             messages: [
                         {
-                          date: this.newDate(),
+                          date: '27/10/1990 13:30:55',
                           message: 'Tarapio tapioco come se fosse antani, la supercazzola prematurata con dominus vobiscum blinda?',
                           status: 'received',
                           messageInfo: 'Message info',
@@ -29,7 +29,7 @@ const { createApp } = Vue
           avatar: './img/avatar_1.jpg',
           visible: true,
           visibleDropUp: false,
-          stato: 'Ultimo accesso alle ',
+          stato: ' ',
           messages: [
                       {
                         date: '10/01/2020 15:30:55',
@@ -61,7 +61,7 @@ const { createApp } = Vue
           avatar: './img/avatar_2.jpg',
           visible: true,
           visibleDropUp: false,
-          stato: 'Ultimo accesso alle ',
+          stato: ' ',
           messages: [
                       {
                         date: '20/03/2020 16:30:00',
@@ -93,7 +93,7 @@ const { createApp } = Vue
           avatar: './img/avatar_3.jpg',
           visible: true,
           visibleDropUp: false,
-          stato: 'Ultimo accesso alle ',
+          stato: ' ',
           messages: [
                       {
                         date: '28/03/2020 10:10:40',
@@ -125,7 +125,7 @@ const { createApp } = Vue
           avatar: './img/avatar_4.jpg',
           visible: true,
           visibleDropUp: false,
-          stato: 'Ultimo accesso alle ',
+          stato: ' ',
           messages: [
                       {
                         date: '10/01/2020 15:30:55',
@@ -149,7 +149,7 @@ const { createApp } = Vue
           avatar: './img/avatar_5.jpg',
           visible: true,
           visibleDropUp: false,
-          stato: 'Ultimo accesso alle ',
+          stato: ' ',
           messages: [
                       {
                         date: '10/01/2020 15:30:55',
@@ -173,7 +173,7 @@ const { createApp } = Vue
           avatar: './img/avatar_6.jpg',
           visible: true,
           visibleDropUp: false,
-          stato: 'Ultimo accesso alle ',
+          stato: ' ',
           messages: [
                       {
                         date: '10/01/2020 15:30:55',
@@ -205,7 +205,7 @@ const { createApp } = Vue
           avatar: './img/avatar_7.jpg',
           visible: true,
           visibleDropUp: false,
-          stato: 'Ultimo accesso alle ',
+          stato: ' ',
           messages: [
                       {
                         date: '10/01/2020 15:30:55',
@@ -229,7 +229,7 @@ const { createApp } = Vue
           avatar: './img/avatar_8.jpg',
           visible: true,
           visibleDropUp: false,
-          stato: 'Ultimo accesso alle ',
+          stato: ' ',
           messages: [
                       {
                         date: '10/01/2020 15:30:55',
@@ -378,6 +378,8 @@ const { createApp } = Vue
           day = '0' + day;
         } else if (month < 10) {
           month = '0' + month;
+        } else if (seconds < 10) {
+          seconds = '0' + seconds;
         }
         let dataCompleta = day + '/' + month + '/' + year + ' ' + hour + ':' + minutes + ':' + seconds;
         return dataCompleta;
@@ -407,10 +409,20 @@ const { createApp } = Vue
     },
 
     changeStatusLastAccess() {
-      this.contacts[this.activeContact].stato = 'Ultimo accesso alle ' + this.contacts[this.activeContact].messages[this.contacts[this.activeContact].messages.length - 1].date;
+      this.contacts[this.activeContact].stato = 'Ultimo accesso il ' + this.contacts[this.activeContact].messages[this.contacts[this.activeContact].messages.length - 1].date;
+    },
+
+    lastAccess() {
+      stato = 'Ultimo accesso il ' + this.contacts[this.activeContact].messages[this.contacts[this.activeContact].messages.length - 1].date;
+      return stato;
     }
     
-
+  },
+  mounted() {
+    this.contacts.forEach(element => {
+      element.stato = 'Ultimo accesso il ' + element.messages[element.messages.length - 1].date;
+    });
+    
   },
 }).mount('#app')
 
