@@ -138,7 +138,10 @@
 
                 <!-- Input message -->
                 <div id="message-input-container" class="d-flex">
-                    <label for="message-input"><i class="fa-regular fa-face-smile"></i></label>
+                    <label for="message-input" @click="emoji = !emoji"><i class="fa-regular fa-face-smile"></i></label>
+                    <div class="dropdownEmoji" v-show="emoji">
+                        <span class="emoji" v-for="(emoji, index) in emojis" @click="addEmoji(index)">{{emoji}}</span>                       
+                    </div>
                     <input id="message-input" type="text" placeholder="Scrivi un messaggio" v-model="newMessageText" @keyup.enter="addMessage(activeContact)">
                     <span v-if="newMessageText.length == 0"><i class="fa-solid fa-microphone"></i></span>
                     <span id="send-button" v-else @click="addMessage(activeContact)"><i class="fa-solid fa-paper-plane"></i></span>

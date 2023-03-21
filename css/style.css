@@ -114,6 +114,7 @@ body {
 }
 
 #message-input-container {
+    position: relative;
     height: 70px;
     padding: 10px 0;
     align-items: center;
@@ -270,6 +271,27 @@ body {
     gap: 10px;
     padding: 10px;
     box-shadow: 2px 2px lightgrey;
+}
+.dropdownEmoji {
+    position: absolute;
+    left: 0px;
+    top: -200px;
+    width: 300px;
+    height: 200px;
+    border-radius: 5px;
+    background-color: white;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px;
+    box-shadow: 2px 2px lightgrey;
+    overflow-y: auto;
+}
+
+.emoji {
+    cursor: pointer;
+    font-size: 1.2rem;
 }
 
 #nomessage-info {
