@@ -349,6 +349,8 @@ const { createApp } = Vue
       console.log(filteredContacts);
 
       this.filteredContacts = filteredContacts;
+
+      this.activeContact = 0;
       },
       
       // Milestone 5
